@@ -19,16 +19,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-3u-Oc5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-3u-Oc5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="89" id="Pds-7H-CU7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ApplicationCell" rowHeight="89" id="Pds-7H-CU7" customClass="ApplicationTableViewCell" customModule="iTunes_Search" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pds-7H-CU7" id="TY4-O3-MLZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-2q-tGo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_app_default" translatesAutoresizingMaskIntoConstraints="NO" id="2uD-5G-F3O">
+                                                            <rect key="frame" x="16" y="14.5" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="Cgj-4g-x2B"/>
+                                                                <constraint firstAttribute="height" constant="60" id="JmF-Zw-g6s"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-Lk-Vkj">
+                                                            <rect key="frame" x="86" y="20" width="273" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Seller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-UN-vYl">
+                                                            <rect key="frame" x="86" y="48.5" width="273" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="v8s-Lk-Vkj" firstAttribute="top" secondItem="eVz-2q-tGo" secondAttribute="top" constant="20" id="5ae-Lb-hcH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="v8s-Lk-Vkj" secondAttribute="trailing" constant="16" id="6Ww-Xa-l59"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FIe-UN-vYl" secondAttribute="trailing" constant="16" id="FSS-ML-gvk"/>
+                                                        <constraint firstItem="2uD-5G-F3O" firstAttribute="leading" secondItem="eVz-2q-tGo" secondAttribute="leading" constant="16" id="JYs-0X-2SR"/>
+                                                        <constraint firstItem="FIe-UN-vYl" firstAttribute="leading" secondItem="2uD-5G-F3O" secondAttribute="trailing" constant="10" id="M2I-95-Fao"/>
+                                                        <constraint firstItem="v8s-Lk-Vkj" firstAttribute="leading" secondItem="2uD-5G-F3O" secondAttribute="trailing" constant="10" id="d4r-Nf-2JJ"/>
+                                                        <constraint firstItem="FIe-UN-vYl" firstAttribute="top" secondItem="v8s-Lk-Vkj" secondAttribute="bottom" constant="8" id="iIi-v4-zOu"/>
+                                                        <constraint firstItem="2uD-5G-F3O" firstAttribute="centerY" secondItem="eVz-2q-tGo" secondAttribute="centerY" id="n4X-O2-AaW"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="eVz-2q-tGo" secondAttribute="bottom" id="11F-4W-z7Z"/>
+                                                <constraint firstItem="eVz-2q-tGo" firstAttribute="leading" secondItem="TY4-O3-MLZ" secondAttribute="leading" id="66N-KC-I0T"/>
+                                                <constraint firstAttribute="trailing" secondItem="eVz-2q-tGo" secondAttribute="trailing" id="JiP-Zy-p7D"/>
+                                                <constraint firstItem="eVz-2q-tGo" firstAttribute="top" secondItem="TY4-O3-MLZ" secondAttribute="top" id="cDe-rD-Jgu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -44,6 +97,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Applications" id="x5e-64-ESi"/>
+                    <connections>
+                        <outlet property="tableView" destination="QYH-3u-Oc5" id="GrF-IN-eSX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,6 +132,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_app_default" width="209" height="209"/>
         <namedColor name="PrimaryColor">
             <color red="0.10196078431372549" green="0.63137254901960782" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

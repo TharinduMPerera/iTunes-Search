@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		81BFA280216075ED00A828A8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA27F216075ED00A828A8 /* SearchViewController.swift */; };
+		81BFA2842160904400A828A8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA2832160904400A828A8 /* Application.swift */; };
+		81BFA2872160A2B300A828A8 /* ApplicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BFA2862160A2B300A828A8 /* ApplicationTableViewCell.swift */; };
 		81C3E543215FC772002CF0A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3E542215FC772002CF0A7 /* AppDelegate.swift */; };
 		81C3E548215FC772002CF0A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C3E546215FC772002CF0A7 /* Main.storyboard */; };
 		81C3E54A215FC773002CF0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C3E549215FC773002CF0A7 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		81BFA27F216075ED00A828A8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		81BFA2832160904400A828A8 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		81BFA2862160A2B300A828A8 /* ApplicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTableViewCell.swift; sourceTree = "<group>"; };
 		81C3E53F215FC772002CF0A7 /* iTunes-Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes-Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C3E542215FC772002CF0A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81C3E547215FC772002CF0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,8 +50,25 @@
 		81BFA28121607E3800A828A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81BFA2852160A29000A828A8 /* Cells */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		81BFA28221608F7B00A828A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81BFA2832160904400A828A8 /* Application.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81BFA2852160A29000A828A8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				81BFA2862160A2B300A828A8 /* ApplicationTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		81C3E536215FC772002CF0A7 = {
@@ -69,6 +90,7 @@
 		81C3E541215FC772002CF0A7 /* iTunes-Search */ = {
 			isa = PBXGroup;
 			children = (
+				81BFA28221608F7B00A828A8 /* Models */,
 				81BFA28121607E3800A828A8 /* Views */,
 				81BFA27E216075AD00A828A8 /* Controllers */,
 				81C3E542215FC772002CF0A7 /* AppDelegate.swift */,
@@ -151,6 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81BFA2872160A2B300A828A8 /* ApplicationTableViewCell.swift in Sources */,
+				81BFA2842160904400A828A8 /* Application.swift in Sources */,
 				81BFA280216075ED00A828A8 /* SearchViewController.swift in Sources */,
 				81C3E543215FC772002CF0A7 /* AppDelegate.swift in Sources */,
 			);

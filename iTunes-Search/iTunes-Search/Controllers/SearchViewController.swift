@@ -8,8 +8,9 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
-
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -21,6 +22,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         configSearchController()
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func configSearchController() {
@@ -47,10 +50,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         definesPresentationContext = true
     }
     
-    //MARK: - UISearchBarDelegate DataSource
+    //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+    }
+    
+    //MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    //MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ApplicationCell", for: indexPath) as! ApplicationTableViewCell
+        return cell
     }
 
 }
