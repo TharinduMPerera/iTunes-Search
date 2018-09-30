@@ -10,9 +10,10 @@ import Foundation
 
 class APICommunicator {
     
+    typealias JSONDictionary = [String: Any]
+    
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
-    var apps: [Application] = []
     var errorMessage = ""
     
     func fetchApplications(searchTerm: String, completion: @escaping (Bool, [Application]?, String) -> ()){
@@ -28,17 +29,58 @@ class APICommunicator {
                 
                 if response == nil {
                     self.errorMessage = "No internet connection."
-                    completion(false, self.apps, self.errorMessage)
+                    completion(false, nil, self.errorMessage)
                 } else if let data = data,
                     let response = response as? HTTPURLResponse,
                     response.statusCode == 200 {
-                   
+                    DispatchQueue.main.async {
+                        completion(true, self.extractApplicationData(data), self.errorMessage)
+                    }
                 } else {
                     self.errorMessage = "Something went wrong."
-                    completion(false, self.apps, self.errorMessage)
+                    completion(false, nil, self.errorMessage)
                 }
             }
             dataTask?.resume()
         }
+    }
+    
+    func cancel() {
+        dataTask?.cancel()
+    }
+    
+    fileprivate func extractApplicationData(_ data: Data) -> [Application]{
+        var response: JSONDictionary?
+        var applications : [Application] = []
+        do {
+            response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
+        } catch let parseError as NSError {
+            print("JSONSerialization error: \(parseError.localizedDescription)\n")
+            return applications
+        }
+        
+        guard let results = response!["results"] as? [Any] else {
+            print("Dictionary does not contain results key")
+            return applications
+        }
+        
+        for appDictionary in results {
+            if let appDictionary = appDictionary as? JSONDictionary,
+                let trackName = appDictionary["trackName"] as? String,
+                let sellerName = appDictionary["sellerName"] as? String,
+                let version = appDictionary["version"] as? String,
+                let wrapperType = appDictionary["wrapperType"] as? String,
+                let primaryGenreName = appDictionary["primaryGenreName"] as? String,
+                let formattedPrice = appDictionary["formattedPrice"] as? String,
+                let artworkUrl100 = appDictionary["artworkUrl100"] as? String,
+                let averageUserRating = appDictionary["averageUserRating"] as? String,
+                let contentAdvisoryRating = appDictionary["contentAdvisoryRating"] as? String {
+                applications.append(Application(trackName: trackName, sellerName: sellerName, version: version, wrapperType: wrapperType, primaryGenreName: primaryGenreName, formattedPrice: formattedPrice, artworkUrl100: artworkUrl100, averageUserRating: averageUserRating, contentAdvisoryRating: contentAdvisoryRating))
+            } else {
+                print("Problem parsing appDictionary")
+            }
+        }
+        
+        return applications
     }
 }
