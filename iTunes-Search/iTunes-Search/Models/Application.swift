@@ -12,12 +12,10 @@ struct Application {
     let trackName : String
     let sellerName : String
     let version : String
-    let description : String
     let wrapperType : String
     let primaryGenreName : String
     let formattedPrice : String
     let artworkUrl100 : String
-    let fileSizeBytes : String
     let averageUserRating : String
     let contentAdvisoryRating : String
 }
