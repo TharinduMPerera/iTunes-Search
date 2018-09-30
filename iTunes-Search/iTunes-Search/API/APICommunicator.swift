@@ -71,9 +71,12 @@ class APICommunicator {
                 let primaryGenreName = appDictionary["primaryGenreName"] as? String,
                 let formattedPrice = appDictionary["formattedPrice"] as? String,
                 let artworkUrl100 = appDictionary["artworkUrl100"] as? String,
-                let averageUserRating = appDictionary["averageUserRating"] as? Float,
                 let contentAdvisoryRating = appDictionary["contentAdvisoryRating"] as? String {
-                applications.append(Application(trackName: trackName, sellerName: sellerName, version: version, wrapperType: wrapperType, primaryGenreName: primaryGenreName, formattedPrice: formattedPrice, artworkUrl100: artworkUrl100, averageUserRating: averageUserRating, contentAdvisoryRating: contentAdvisoryRating))
+                var rating: Float?
+                if let averageUserRating = appDictionary["averageUserRating"] as? Float {
+                    rating = averageUserRating
+                }
+                applications.append(Application(trackName: trackName, sellerName: sellerName, version: version, wrapperType: wrapperType, primaryGenreName: primaryGenreName, formattedPrice: formattedPrice, artworkUrl100: artworkUrl100, averageUserRating: rating, contentAdvisoryRating: contentAdvisoryRating))
             } else {
                 print("Problem parsing appDictionary")
             }

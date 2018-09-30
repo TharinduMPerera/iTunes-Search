@@ -14,10 +14,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var applications : [Application] =  []
-    let apiCommunicator = APICommunicator()
+    private var applications : [Application] =  []
+    private let apiCommunicator = APICommunicator()
     
-    let searchController = UISearchController(searchResultsController: nil)
+    private let searchController = UISearchController(searchResultsController: nil)
+    
+    private var hasBeenCanceld = false
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -84,6 +86,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.hasBeenCanceld = false
         clearTable()
         showLoading()
         apiCommunicator.fetchApplications(searchTerm: searchBar.text ?? "") { (success, data, error) in
@@ -100,14 +103,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                         }
                     }
                 } else {
-                    self.messageLabel.text = error
-                    self.messageLabel.isHidden = false
+                    if(!self.hasBeenCanceld){
+                        self.messageLabel.text = error
+                        self.messageLabel.isHidden = false
+                    }
                 }
             }
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        hasBeenCanceld = true
         apiCommunicator.cancel()
         clearTable()
         hideLoading()

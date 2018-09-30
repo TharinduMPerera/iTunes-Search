@@ -16,6 +16,6 @@ struct Application {
     let primaryGenreName : String
     let formattedPrice : String
     let artworkUrl100 : String
-    let averageUserRating : Float
+    let averageUserRating : Float?
     let contentAdvisoryRating : String
 }
