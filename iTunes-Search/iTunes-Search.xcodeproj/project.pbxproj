@@ -43,6 +43,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		81BFA28121607E3800A828A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		81C3E536215FC772002CF0A7 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +69,7 @@
 		81C3E541215FC772002CF0A7 /* iTunes-Search */ = {
 			isa = PBXGroup;
 			children = (
+				81BFA28121607E3800A828A8 /* Views */,
 				81BFA27E216075AD00A828A8 /* Controllers */,
 				81C3E542215FC772002CF0A7 /* AppDelegate.swift */,
 				81C3E546215FC772002CF0A7 /* Main.storyboard */,

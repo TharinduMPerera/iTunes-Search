@@ -19,24 +19,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search Application" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6i-Un-Ccx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                <color key="barTintColor" name="PrimaryColor"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYH-3u-Oc5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="89" id="Pds-7H-CU7">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pds-7H-CU7" id="TY4-O3-MLZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="t6i-Un-Ccx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DXp-QR-QPz"/>
-                            <constraint firstItem="t6i-Un-Ccx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j9F-gr-q3y"/>
-                            <constraint firstItem="t6i-Un-Ccx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qJF-Gg-piD"/>
+                            <constraint firstItem="QYH-3u-Oc5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JZ1-Qy-mK7"/>
+                            <constraint firstItem="QYH-3u-Oc5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OCf-QN-YS7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QYH-3u-Oc5" secondAttribute="bottom" id="ScN-Nn-wIh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYH-3u-Oc5" secondAttribute="trailing" id="btA-T8-IhH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Applications" id="x5e-64-ESi"/>
-                    <connections>
-                        <outlet property="searchBar" destination="t6i-Un-Ccx" id="idQ-BI-SkT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
