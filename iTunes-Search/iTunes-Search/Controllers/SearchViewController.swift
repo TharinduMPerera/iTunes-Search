@@ -15,6 +15,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var applications : [Application] =  []
+    let apiCommunicator = APICommunicator()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -63,27 +64,52 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     private func showLoading() {
-        applications.removeAll()
-        tableView.reloadData()
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     private func hideLoading() {
         activityIndicator.isHidden = true
         activityIndicator.stopAnimating()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
+    }
+    
+    private func clearTable() {
+        applications.removeAll()
+        tableView.reloadData()
     }
     
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        clearTable()
         showLoading()
-//        messageLabel.text = "No Applications Found."
-//        messageLabel.isHidden = false
+        apiCommunicator.fetchApplications(searchTerm: searchBar.text ?? "") { (success, data, error) in
+            DispatchQueue.main.async {
+                self.hideLoading()
+                if(success){
+                    if let data = data {
+                        if data.count > 0 {
+                            self.applications = data
+                            self.tableView.reloadData()
+                        } else {
+                            self.messageLabel.text = "No Applications Found."
+                            self.messageLabel.isHidden = false
+                        }
+                    }
+                } else {
+                    self.messageLabel.text = error
+                    self.messageLabel.isHidden = false
+                }
+            }
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        apiCommunicator.cancel()
+        clearTable()
         hideLoading()
         messageLabel.text = "Search Applications."
         messageLabel.isHidden = false
