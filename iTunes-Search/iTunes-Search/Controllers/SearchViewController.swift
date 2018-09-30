@@ -16,14 +16,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     private var applications : [Application] =  []
     private let apiCommunicator = APICommunicator()
-    
     private let searchController = UISearchController(searchResultsController: nil)
-    
-    private var hasBeenCanceld = false
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
+    private var isCanceledTapped = false
+    private var selectedApplication : Application?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +29,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         configSearchController()
         configTableView()
         hideLoading()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetails" {
+            if let detailsViewController = segue.destination as? DetailsViewController {
+                detailsViewController.application = self.selectedApplication
+            }
+        }
     }
     
     private func configSearchController() {
@@ -86,7 +89,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.hasBeenCanceld = false
+        self.isCanceledTapped = false
         clearTable()
         showLoading()
         apiCommunicator.fetchApplications(searchTerm: searchBar.text ?? "") { (success, data, error) in
@@ -103,7 +106,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                         }
                     }
                 } else {
-                    if(!self.hasBeenCanceld){
+                    if(!self.isCanceledTapped){
                         self.messageLabel.text = error
                         self.messageLabel.isHidden = false
                     }
@@ -113,7 +116,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        hasBeenCanceld = true
+        isCanceledTapped = true
         apiCommunicator.cancel()
         clearTable()
         hideLoading()
@@ -140,7 +143,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedApplication = applications[indexPath.row]
+        performSegue(withIdentifier: "ShowDetails", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }
