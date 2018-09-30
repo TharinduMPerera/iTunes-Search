@@ -111,11 +111,28 @@
                         <outlet property="activityIndicator" destination="Npe-fs-dwp" id="Kca-WT-MBX"/>
                         <outlet property="messageLabel" destination="kWX-xP-WK6" id="A2B-vg-Fxu"/>
                         <outlet property="tableView" destination="QYH-3u-Oc5" id="GrF-IN-eSX"/>
+                        <segue destination="smt-6x-nG8" kind="show" identifier="ShowDetails" id="i4L-4X-VaX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="-532"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="fLY-Ra-hSR">
+            <objects>
+                <viewController id="smt-6x-nG8" customClass="DetailsViewController" customModule="iTunes_Search" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cW3-Ug-ufl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eCj-hY-wv0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="Xze-sM-nFJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mcw-Dx-wh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902" y="-532"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W90-yC-YLw">
@@ -149,4 +166,5 @@
             <color red="0.10196078431372549" green="0.63137254901960782" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
