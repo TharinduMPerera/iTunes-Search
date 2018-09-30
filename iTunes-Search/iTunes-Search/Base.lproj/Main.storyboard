@@ -39,11 +39,6 @@
                                                                 <constraint firstAttribute="width" constant="60" id="Cgj-4g-x2B"/>
                                                                 <constraint firstAttribute="height" constant="60" id="JmF-Zw-g6s"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="5"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-Lk-Vkj">
                                                             <rect key="frame" x="86" y="20" width="273" height="20.5"/>
@@ -79,7 +74,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="appNAme" destination="v8s-Lk-Vkj" id="toE-Ol-tP7"/>
+                                            <outlet property="appName" destination="v8s-Lk-Vkj" id="siA-KN-cZc"/>
                                             <outlet property="seller" destination="FIe-UN-vYl" id="agf-DI-AGV"/>
                                             <outlet property="thubnailImage" destination="2uD-5G-F3O" id="vFI-0C-k9i"/>
                                         </connections>

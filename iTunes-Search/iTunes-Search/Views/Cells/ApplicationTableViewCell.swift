@@ -10,19 +10,18 @@ import UIKit
 
 class ApplicationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var appNAme: UILabel!
+    @IBOutlet weak var appName: UILabel!
     @IBOutlet weak var seller: UILabel!
     @IBOutlet weak var thubnailImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setDetails(application: Application) {
+        appName.text = application.trackName.isEmpty ? "Name: N/A" : application.trackName
+        seller.text = application.sellerName.isEmpty ? "Seller: N/A" : application.sellerName
+        thubnailImage.loadFromUrl(url: application.artworkUrl100)
     }
 
 }
