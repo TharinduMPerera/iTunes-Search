@@ -25,6 +25,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     private func configSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Application"
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = UIColor.white
@@ -41,17 +42,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             }
         }
         
-        self.navigationItem.searchController = searchController
+        navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
     
     //MARK: - UISearchBarDelegate DataSource
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.view.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
     }
 
