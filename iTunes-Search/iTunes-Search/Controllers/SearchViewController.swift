@@ -12,6 +12,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var applications : [Application] =  []
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -27,6 +30,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         messageLabel.isHidden = false
         configSearchController()
         configTableView()
+        hideLoading()
     }
     
     private func configSearchController() {
@@ -58,14 +62,29 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         self.tableView.tableFooterView = UIView()
     }
     
+    private func showLoading() {
+        applications.removeAll()
+        tableView.reloadData()
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideLoading() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+        
+    }
+    
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        messageLabel.text = "No Applications Found."
-        messageLabel.isHidden = false
+        showLoading()
+//        messageLabel.text = "No Applications Found."
+//        messageLabel.isHidden = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        hideLoading()
         messageLabel.text = "Search Applications."
         messageLabel.isHidden = false
     }
@@ -77,7 +96,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return applications.count
     }
     
     //MARK: - UITableViewDelegate

@@ -92,21 +92,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Npe-fs-dwp">
+                                <rect key="frame" x="177.5" y="291.5" width="20" height="20"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QYH-3u-Oc5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JZ1-Qy-mK7"/>
                             <constraint firstItem="QYH-3u-Oc5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OCf-QN-YS7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QYH-3u-Oc5" secondAttribute="bottom" id="ScN-Nn-wIh"/>
+                            <constraint firstItem="Npe-fs-dwp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TLy-1B-Xie"/>
                             <constraint firstItem="kWX-xP-WK6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bH4-x5-QjE"/>
                             <constraint firstItem="kWX-xP-WK6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bf9-tR-l2s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYH-3u-Oc5" secondAttribute="trailing" id="btA-T8-IhH"/>
+                            <constraint firstItem="Npe-fs-dwp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cH9-tm-FV0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kWX-xP-WK6" secondAttribute="trailing" constant="20" id="whb-qr-lYi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Applications" id="x5e-64-ESi"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Npe-fs-dwp" id="Kca-WT-MBX"/>
                         <outlet property="messageLabel" destination="kWX-xP-WK6" id="A2B-vg-Fxu"/>
                         <outlet property="tableView" destination="QYH-3u-Oc5" id="GrF-IN-eSX"/>
                     </connections>
