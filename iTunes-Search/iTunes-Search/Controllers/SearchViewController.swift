@@ -11,6 +11,9 @@ import UIKit
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -20,16 +23,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        messageLabel.text = "Search Applications."
+        messageLabel.isHidden = false
         configSearchController()
-        tableView.dataSource = self
-        tableView.delegate = self
+        configTableView()
     }
     
     private func configSearchController() {
-        let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Application"
+        searchController.searchBar.placeholder = "App Store"
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = UIColor.white
         
@@ -50,16 +52,32 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         definesPresentationContext = true
     }
     
+    private func configTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+    }
+    
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        messageLabel.text = "No Applications Found."
+        messageLabel.isHidden = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        messageLabel.text = "Search Applications."
+        messageLabel.isHidden = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        messageLabel.isHidden = true
     }
     
     //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return 2
     }
     
     //MARK: - UITableViewDelegate

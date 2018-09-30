@@ -69,11 +69,6 @@
                                                         <constraint firstItem="FIe-UN-vYl" firstAttribute="top" secondItem="v8s-Lk-Vkj" secondAttribute="bottom" constant="8" id="iIi-v4-zOu"/>
                                                         <constraint firstItem="2uD-5G-F3O" firstAttribute="centerY" secondItem="eVz-2q-tGo" secondAttribute="centerY" id="n4X-O2-AaW"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -83,21 +78,36 @@
                                                 <constraint firstItem="eVz-2q-tGo" firstAttribute="top" secondItem="TY4-O3-MLZ" secondAttribute="top" id="cDe-rD-Jgu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="appNAme" destination="v8s-Lk-Vkj" id="toE-Ol-tP7"/>
+                                            <outlet property="seller" destination="FIe-UN-vYl" id="agf-DI-AGV"/>
+                                            <outlet property="thubnailImage" destination="2uD-5G-F3O" id="vFI-0C-k9i"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Applications." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWX-xP-WK6">
+                                <rect key="frame" x="20" y="289.5" width="335" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QYH-3u-Oc5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JZ1-Qy-mK7"/>
                             <constraint firstItem="QYH-3u-Oc5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OCf-QN-YS7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QYH-3u-Oc5" secondAttribute="bottom" id="ScN-Nn-wIh"/>
+                            <constraint firstItem="kWX-xP-WK6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bH4-x5-QjE"/>
+                            <constraint firstItem="kWX-xP-WK6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bf9-tR-l2s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QYH-3u-Oc5" secondAttribute="trailing" id="btA-T8-IhH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kWX-xP-WK6" secondAttribute="trailing" constant="20" id="whb-qr-lYi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Applications" id="x5e-64-ESi"/>
                     <connections>
+                        <outlet property="messageLabel" destination="kWX-xP-WK6" id="A2B-vg-Fxu"/>
                         <outlet property="tableView" destination="QYH-3u-Oc5" id="GrF-IN-eSX"/>
                     </connections>
                 </viewController>

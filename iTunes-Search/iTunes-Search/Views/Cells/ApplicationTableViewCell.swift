@@ -10,6 +10,10 @@ import UIKit
 
 class ApplicationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var appNAme: UILabel!
+    @IBOutlet weak var seller: UILabel!
+    @IBOutlet weak var thubnailImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
