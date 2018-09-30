@@ -28,16 +28,14 @@ class APICommunicator {
                 defer { self.dataTask = nil }
                 
                 if response == nil {
-                    self.errorMessage = "No internet connection."
+                    self.errorMessage = "No Internet Connection."
                     completion(false, nil, self.errorMessage)
                 } else if let data = data,
                     let response = response as? HTTPURLResponse,
                     response.statusCode == 200 {
-                    DispatchQueue.main.async {
-                        completion(true, self.extractApplicationData(data), self.errorMessage)
-                    }
+                    completion(true, self.extractApplicationData(data), self.errorMessage)
                 } else {
-                    self.errorMessage = "Something went wrong."
+                    self.errorMessage = "Something Went Wrong."
                     completion(false, nil, self.errorMessage)
                 }
             }
@@ -73,7 +71,7 @@ class APICommunicator {
                 let primaryGenreName = appDictionary["primaryGenreName"] as? String,
                 let formattedPrice = appDictionary["formattedPrice"] as? String,
                 let artworkUrl100 = appDictionary["artworkUrl100"] as? String,
-                let averageUserRating = appDictionary["averageUserRating"] as? String,
+                let averageUserRating = appDictionary["averageUserRating"] as? Float,
                 let contentAdvisoryRating = appDictionary["contentAdvisoryRating"] as? String {
                 applications.append(Application(trackName: trackName, sellerName: sellerName, version: version, wrapperType: wrapperType, primaryGenreName: primaryGenreName, formattedPrice: formattedPrice, artworkUrl100: artworkUrl100, averageUserRating: averageUserRating, contentAdvisoryRating: contentAdvisoryRating))
             } else {
