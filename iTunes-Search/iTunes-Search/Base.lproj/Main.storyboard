@@ -299,6 +299,16 @@
                         <viewLayoutGuide key="safeArea" id="eCj-hY-wv0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Xze-sM-nFJ"/>
+                    <connections>
+                        <outlet property="ageRatingLabel" destination="tgU-sN-qaJ" id="4AX-N7-s4R"/>
+                        <outlet property="categoryLabel" destination="Xdo-IL-yQY" id="Hcj-br-gc6"/>
+                        <outlet property="nameLabel" destination="2hJ-ny-6JI" id="Udy-io-Ngt"/>
+                        <outlet property="priceLabel" destination="aU7-PE-Jh7" id="7Ii-LY-mAL"/>
+                        <outlet property="ratingLabel" destination="lcu-hj-3Dw" id="wR5-pw-bjl"/>
+                        <outlet property="sellerLabel" destination="N4h-EJ-pTM" id="RTU-3P-gxE"/>
+                        <outlet property="thumbnailImage" destination="nsV-9Q-Scu" id="rbj-xc-na7"/>
+                        <outlet property="versionLabel" destination="COM-pi-OaT" id="S53-Kr-HcK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcw-Dx-wh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

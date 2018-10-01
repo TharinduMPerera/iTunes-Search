@@ -10,6 +10,15 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
+    @IBOutlet weak var thumbnailImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sellerLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var ageRatingLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
     var application : Application?
 
     override func viewWillAppear(_ animated: Bool) {
