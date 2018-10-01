@@ -89,7 +89,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     //MARK: - UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.isCanceledTapped = false
+        isCanceledTapped = false
+        messageLabel.isHidden = true
         clearTable()
         showLoading()
         apiCommunicator.fetchApplications(searchTerm: searchBar.text ?? "") { (success, data, error) in
