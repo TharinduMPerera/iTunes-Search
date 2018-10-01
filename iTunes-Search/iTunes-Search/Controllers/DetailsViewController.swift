@@ -27,10 +27,24 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDetails()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func  setDetails() {
+        if let app = application {
+            thumbnailImage.loadFromUrl(url: app.artworkUrl100)
+            nameLabel.text = app.trackName
+            sellerLabel.text = app.sellerName
+            versionLabel.text = app.version
+            ratingLabel.text = app.averageUserRating == nil ? "N/A" : "\(app.averageUserRating!)"
+            categoryLabel.text = app.primaryGenreName
+            ageRatingLabel.text = app.contentAdvisoryRating
+            priceLabel.text = app.formattedPrice
+        }
     }
 
 }
