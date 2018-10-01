@@ -279,6 +279,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qFi-G0-NQE" firstAttribute="leading" secondItem="Cgp-cg-WE8" secondAttribute="leading" id="2dV-kD-SMi"/>
                                     <constraint firstAttribute="trailing" secondItem="qFi-G0-NQE" secondAttribute="trailing" id="CqD-lN-zLy"/>
